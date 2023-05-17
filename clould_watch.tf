@@ -4,8 +4,13 @@ resource "aws_cloudwatch_log_group" "my_log_group" {
 }
 
 # 2.Define a CloudWatch Logs stream using Terraform:
-resource "aws_cloudwatch_log_stream" "my_log_stream" {
-  name           = "my_log_stream"
+resource "aws_cloudwatch_log_stream" "my_log_stream_client" {
+  name           = "my_log_stream_client"
+  log_group_name = aws_cloudwatch_log_group.my_log_group.name
+}
+
+resource "aws_cloudwatch_log_stream" "my_log_stream_service" {
+  name           = "my_log_stream_service"
   log_group_name = aws_cloudwatch_log_group.my_log_group.name
 }
 
