@@ -69,11 +69,7 @@ resource "aws_ecs_task_definition" "td" {
       environment = [
         {
           "name": "ASPNETCORE_ENVIRONMENT",
-          "value": "Prod"
-        },
-        {
-          name  = "BaseSettings__Url"
-          value = "http://${data.aws_lb.blazordev-lb-web.dns_name}:81"
+          "value": "Production"
         }
       ],
       "logConfiguration": {
@@ -112,7 +108,7 @@ resource "aws_ecs_task_definition" "td2" {
       environment = [
         {
           "name": "ASPNETCORE_ENVIRONMENT",
-          "value": "Prod"
+          "value": "Production"
         },
         {
           name  = "ConnectionStrings__DefaultConnection"
